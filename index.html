@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofi Shop</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/fonts/icon_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header--left">
+            <a href="/"><img class="logo" src="src/imgs/logo.jpg" alt="Logo"></a></div>
+        <div class="header--right">
+            <span class="nav header--right__help">Ayuda</span>
+            <span class="nav header--right__cart icon icon-cart"><span class="cart-count">8</span></span>
+            <span class="nav header--right__profile icon icon-user"></span>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="main--panel">
+            <nav>
+                <ul class="panel--item">
+                    Categorias
+                </ul>
+                <ul class="panel--subitem">
+                    <!-- Categorias por JS -->
+                </ul>
+            </nav>
+        </section>
+        <section class="main--content">
+            <div class="content--banner">
+                <a href="/"><img src="src/imgs/banner.png" alt="Baner"></a>
+            </div>
+            <section class="main--controls">
+                <nav class="">
+                    <ul>
+                        <li class="resetButton">Quitar Filtros</li>
+                    </ul>
+                </nav>
+            </section>
+            <div class="content--products">
+                <div class="content--products--cards">
+                    <div class="content--products--cards--card ">
+                        <img class="product__img" src="src/imgs/logo.jpg" alt="Imagen de Producto">
+                        <h3 class="product__title">Titulo algo amplio</h3>
+                        <p class="product__category">Categoria</p>
+                        <p class="product__price">Precio: $1234</p>
+                        <div class="product__details">Ver Mas</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        Copyright © 2020 - All Rights Reserved.
+    </footer>
+    <script src="src/utils/getData.js"></script>
+</body>
+
+</html>
