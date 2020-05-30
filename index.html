@@ -13,10 +13,11 @@
 <body>
     <header class="header">
         <div class="header--left">
-            <a href="/"><img class="logo" src="src/imgs/logo.jpg" alt="Logo"></a></div>
+            <a href="index.html"><img class="logo" src="src/imgs/logo.jpg" alt="Logo"></a></div>
         <div class="header--right">
             <span class="nav header--right__help">Ayuda</span>
-            <span class="nav header--right__cart icon icon-cart"><span class="cart-count">8</span></span>
+            <a href="shopcart.html"><span class="nav header--right__cart icon icon-cart"><span
+                        class="cart-count">8</span></span></a>
             <span class="nav header--right__profile icon icon-user"></span>
         </div>
     </header>
@@ -37,21 +38,22 @@
                 <a href="/"><img src="src/imgs/banner.png" alt="Baner"></a>
             </div>
             <section class="main--controls">
-                <nav class="">
+                <nav class="controls">
                     <ul>
                         <li class="resetButton">Quitar Filtros</li>
+                        <li class="reload icon icon-rotate"></li>
                     </ul>
                 </nav>
             </section>
             <div class="content--products">
                 <div class="content--products--cards">
-                    <div class="content--products--cards--card ">
+                    <!-- <div class="content--products--cards--card ">
                         <img class="product__img" src="src/imgs/logo.jpg" alt="Imagen de Producto">
                         <h3 class="product__title">Titulo algo amplio</h3>
                         <p class="product__category">Categoria</p>
                         <p class="product__price">Precio: $1234</p>
-                        <div class="product__details">Ver Mas</div>
-                    </div>
+                        <button class="product__details">Ver Mas</button>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -59,7 +61,24 @@
     <footer class="footer">
         Copyright © 2020 - All Rights Reserved.
     </footer>
-    <script src="src/utils/getData.js"></script>
+    <section class="modal">
+        <div class="modal-details">
+            <img class="details--product__img" src="src/imgs/logo.jpg" alt="Imagen de Producto">
+            <div class="details-text">
+                <h3 class="details--product__title">Titulo algo amplio</h3>
+                <p class="details--product__category">Descripcion: </p>
+                <p class="details--product__category">Categoria: </p>
+                <p class="details--product__price">Precio: $1234</p>
+                <div class="details--product__details">
+                    <i class="icon icon-cart-plus"></i>
+                    <p>Agregar al Carrito</p>
+                </div>
+            </div>
+            <div class="modal--close"><span>&times;</span></div>
+        </div>
+    </section>
+    <script src="src/utils/Data.js"></script>
+    <script src="src/utils/script.js"></script>
 </body>
 
 </html>

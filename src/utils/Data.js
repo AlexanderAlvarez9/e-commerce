@@ -2,6 +2,8 @@ const API = './src/data.json';
 const $productCard = document.querySelector('.content--products--cards');
 const $categoryList = document.querySelector('.panel--subitem');
 const $reset = document.querySelector('.resetButton');
+const $modal = document.querySelector('.modal');
+const $modalDetails = document.querySelector('.modal-details');
 
 
 
@@ -30,7 +32,52 @@ function cardContructor(result) {
                 `
     });
     //Construye nuevas categorias
+    $categoryList.innerHTML = ""
     category(result);
+
+    //Escuchador de eventos para el ver mas y cerrar
+    let $buttonDetails = document.querySelectorAll('.product__details');
+
+    for (let i = 0; i < $buttonDetails.length; i++) {
+        $buttonDetails[i].addEventListener("click", () => {
+
+            $modalDetails.innerHTML = ""
+            $modal.style.display = "grid";
+            $modalDetails.innerHTML = `
+            <img class="details--product__img" src="${result[i].image}" alt="Imagen de Producto">
+            <div class="details-text">
+                <h3 class="details--product__title">${result[i].product}</h3>
+                <p class="details--product__description">Descripcion: ${result[i].description}</p>
+                <p class="details--product__category">Categoria:${result[i].category}</p>
+                <p class="details--product__price">Precio: $${result[i].price}</p>
+                <div class="details--product__details">
+                    <i class="icon icon-cart-plus"></i>
+                    <p value="${result[i].id}">Agregar al Carrito</p>
+                </div>
+            </div>
+            <div class="modal--close"><span>&times;</span></div>
+            `
+            //Obtener Boton agregar a carrito
+            let $addButtonCart = document.querySelector('.details--product__details p')
+            let value = $addButtonCart.getAttribute('value')
+
+            addToCard(result, value)
+            console.log(value);
+
+            //Cerrar modal con la X de cerrar
+            let $closeModal = document.querySelector('.modal--close');
+            $closeModal.addEventListener("click", () => {
+                $modal.style.display = "none";
+            })
+        });
+
+    }
+
+    // $addButtonCart.addEventListener('click', console.log(`soy ${result[1].id}`))
+
+
+
+    //Cerrar Modal
 }
 
 function category(result) {
@@ -61,7 +108,6 @@ function getCatFilter(result) {
 
     for (let i = 0; i < $catButton.length; i++) {
         $catButton[i].addEventListener("click", function () {
-            console.log(`mi valor es ${$catButton[i].textContent}`);
             var newFilter = result.filter(item => item.category == $catButton[i].textContent)
             $productCard.innerHTML = ""
             $categoryList.innerHTML = ""
@@ -71,6 +117,10 @@ function getCatFilter(result) {
 
 }
 
-$reset.addEventListener('click', getData)
+let addToCard = (results, item) => {
+    console.log(`Agregar a el carro a el elemento ${results[item].id - 1}`);
+    console.log(results[item - 1]);
+
+}
 
 getData()
