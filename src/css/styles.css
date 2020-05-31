@@ -32,6 +32,10 @@ a {
     text-decoration: none;
 }
 
+a:visited {
+    color: black;
+}
+
 div,
 form {
     border-radius: var(--radius);
@@ -45,8 +49,9 @@ form {
     --background: #F1F2F2;
     --card: #fff;
     --principal: #72F1B8;
-    --subprincipal: #72F1B899;
+    --subprincipal: #D91E62;
     --secondary: #FF7A00;
+    --alert: #00BB2D;
     --color-font: #9A9A9A;
     --padding: 1.5em;
     --panel-padding: 0 0.3em 0 0.3em;
@@ -60,7 +65,7 @@ form {
 /*--- END VARS ----*/
 
 ::-webkit-scrollbar {
-    /* display: none; */
+    display: none;
 }
 
 body {
@@ -107,8 +112,11 @@ body {
 }
 
 .cart-count {
-    background-color: var(--secondary);
+    background-color: var(--alert);
     margin: 0.2em;
+    font-size: 2em;
+    border-radius: var(--radius);
+    color: var(--card);
 }
 
 .logo {
@@ -118,7 +126,7 @@ body {
 
 .main {
     display: grid;
-    grid-template-columns: 10% 1fr;
+    grid-template-columns: 20% 1fr;
     width: 90%;
     margin: var(--margin) auto;
     grid-gap: 2em;
@@ -137,10 +145,14 @@ body {
     border-radius: var(--radius);
 }
 
+.panel--item li {
+    /* font-size: 100%; */
+}
+
 .panel--subitem li {
     margin: 0.5em 0;
     margin-left: var(--padding);
-    background-color: var(--subprincipal);
+    background-color: var(--principal);
     border: var(--border);
     border-radius: var(--radius);
     display: flex;
@@ -178,6 +190,7 @@ body {
 
 .content--products--cards {
     display: grid;
+    margin-bottom: 4em;
     grid-template-columns: repeat(4, 25%);
     grid-gap: 1em;
 }
@@ -287,23 +300,68 @@ body {
     overflow: auto;
     top: 0;
     width: 100%;
-    /* position: sticky;
-    top: 0; */
+    position: sticky;
+    top: 0;
     padding-top: 6em;
     z-index: 2;
     position: absolute;
-
 }
 
 .modal-details {
     z-index: 10;
     background-color: #fff;
     display: flex;
+    flex-direction: column;
     margin: 0 auto;
-    height: 70%;
+    height: 80%;
     padding: var(--padding);
-    width: 50%;
+    width: 60%;
     position: relative;
+}
+
+.modal--details-generated {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: 15% 1fr 10% 10% 10%;
+    grid-template-areas: "details__title details__title"
+        "details__img details__description"
+        "details__img details__category"
+        "details__img details__price"
+        "details__addCart details__addCart";
+}
+
+.modal--details--product__img {
+    grid-area: details__img;
+    height: 15em;
+    width: 15em;
+    padding: var(--padding);
+    margin: auto 0;
+}
+
+.modal--details--product__title {
+    grid-area: details__title;
+    margin-top: 1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.modal--details--product__description {
+    grid-area: details__description;
+    text-align: justify;
+}
+
+.modal--details--product__category {
+    grid-area: details__category;
+}
+
+
+.modal--details--product__price {
+    grid-area: details__price;
+}
+
+.modal--details--product__addCart {
+    grid-area: details__addCart;
+    margin-top: 1em;
 }
 
 .modal--close {
@@ -311,44 +369,16 @@ body {
     background-color: var(--secondary);
     border-radius: var(--radius);
     height: 1em;
-    width: 2em;
+    width: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    right: 1em;
     cursor: pointer;
 }
 
-.details--product__img {
-    grid-area: product__img;
-    height: auto;
-    margin: auto 0;
-    width: 50%;
-    border-radius: var(--radius);
-    transition: 1s ease;
-    object-fit: cover;
-    transition: 1s ease;
-}
-
-.details--product__img:hover {
-    transform: scale(1.2);
-}
-
-.details-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: var(--padding);
-}
-
-.details--product__description {
-    text-align: justify;
-}
-
-.details--product__details {
+.modal--details--product__addCart {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -359,10 +389,6 @@ body {
 
 .icon-cart-plus::before {
     background-color: var(--principal);
-}
-
-a:visited {
-    color: black;
 }
 
 .cart {
@@ -439,7 +465,15 @@ a:visited {
     margin: var(--margin);
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1200px) {
+    .content--products--cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1em;
+    }
+}
+
+@media screen and (max-width: 1000px) {
     .content--products--cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

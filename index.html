@@ -16,8 +16,11 @@
             <a href="index.html"><img class="logo" src="src/imgs/logo.jpg" alt="Logo"></a></div>
         <div class="header--right">
             <span class="nav header--right__help">Ayuda</span>
-            <a href="shopcart.html"><span class="nav header--right__cart icon icon-cart"><span
-                        class="cart-count">8</span></span></a>
+            <a href="shopcart.html">
+                <span class="nav header--right__cart icon icon-cart">
+                    <span class="cart-count">0</span>
+                </span>
+            </a>
             <span class="nav header--right__profile icon icon-user"></span>
         </div>
     </header>
@@ -26,7 +29,7 @@
         <section class="main--panel">
             <nav>
                 <ul class="panel--item">
-                    Categorias
+                    <li>Categorias</li>
                 </ul>
                 <ul class="panel--subitem">
                     <!-- Categorias por JS -->
@@ -63,22 +66,25 @@
     </footer>
     <section class="modal">
         <div class="modal-details">
-            <img class="details--product__img" src="src/imgs/logo.jpg" alt="Imagen de Producto">
-            <div class="details-text">
-                <h3 class="details--product__title">Titulo algo amplio</h3>
-                <p class="details--product__category">Descripcion: </p>
-                <p class="details--product__category">Categoria: </p>
-                <p class="details--product__price">Precio: $1234</p>
-                <div class="details--product__details">
+            <div class="modal--details-generated">
+                <!-- <img class="modal--details--product__img" src="src/imgs/logo.jpg" alt="Imagen de Producto">
+                <h3 class="modal--details--product__title">Titulo algo amplio</h3>
+                <p class="modal--details--product__description">Descripcion: </p>
+                <p class="modal--details--product__category">Categoria: </p>
+                <p class="modal--details--product__price">Precio: $1234</p>
+                <div class="modal--details--product__addCart">
                     <i class="icon icon-cart-plus"></i>
                     <p>Agregar al Carrito</p>
-                </div>
+                </div> -->
+            </div>
+            <div class="modal--details--product__addCart">
+                <i class="icon icon-cart-plus"></i>
+                <p class="objectValue" value="">Agregar al Carrito</p>
             </div>
             <div class="modal--close"><span>&times;</span></div>
         </div>
     </section>
     <script src="src/utils/Data.js"></script>
-    <script src="src/utils/script.js"></script>
 </body>
 
 </html>

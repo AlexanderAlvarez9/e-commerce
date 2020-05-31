@@ -3,7 +3,12 @@ const $productCard = document.querySelector('.content--products--cards');
 const $categoryList = document.querySelector('.panel--subitem');
 const $reset = document.querySelector('.resetButton');
 const $modal = document.querySelector('.modal');
-const $modalDetails = document.querySelector('.modal-details');
+const $modalDetails = document.querySelector('.modal--details-generated');
+const $products = document.querySelector('.main');
+let $addButtonCart = document.querySelector('.objectValue')
+const $cartCount = document.querySelector('.cart-count')
+const $buttonCart = document.querySelector('.modal--details--product__addCart')
+const $payButton = document.querySelector('.pay')
 
 
 
@@ -11,14 +16,14 @@ const getData = async () => {
     try {
         const response = await fetch(API);
         const data = await response.json();
-        cardContructor(data);
+        cardConstructor(data);
         return data;
     } catch (error) {
         console.log('Fetch Error', error);
     }
 }
 
-function cardContructor(result) {
+function cardConstructor(result) {
     result.forEach((result) => {
         // console.log(result.id);
         $productCard.innerHTML += `
@@ -43,42 +48,45 @@ function cardContructor(result) {
 
             $modalDetails.innerHTML = ""
             $modal.style.display = "grid";
+            $products.style.display = "none";
             $modalDetails.innerHTML = `
-            <img class="details--product__img" src="${result[i].image}" alt="Imagen de Producto">
-            <div class="details-text">
-                <h3 class="details--product__title">${result[i].product}</h3>
-                <p class="details--product__description">Descripcion: ${result[i].description}</p>
-                <p class="details--product__category">Categoria:${result[i].category}</p>
-                <p class="details--product__price">Precio: $${result[i].price}</p>
-                <div class="details--product__details">
-                    <i class="icon icon-cart-plus"></i>
-                    <p value="${result[i].id}">Agregar al Carrito</p>
-                </div>
-            </div>
-            <div class="modal--close"><span>&times;</span></div>
-            `
-            //Obtener Boton agregar a carrito
-            let $addButtonCart = document.querySelector('.details--product__details p')
-            let value = $addButtonCart.getAttribute('value')
-
-            addToCard(result, value)
-            console.log(value);
-
-            //Cerrar modal con la X de cerrar
-            let $closeModal = document.querySelector('.modal--close');
-            $closeModal.addEventListener("click", () => {
-                $modal.style.display = "none";
-            })
+                <img class="modal--details--product__img" src="${result[i].image}" alt="Imagen de Producto">
+                <h3 class="modal--details--product__title">${result[i].product}</h3>
+                <p class="modal--details--product__description">Descripcion: ${result[i].description}</p>
+                <p class="modal--details--product__category">Categoria:${result[i].category}</p>
+                <p class="modal--details--product__price">Precio: $${result[i].price}</p>
+                `
+            $addButtonCart.setAttribute('value', result[i].id)
         });
-
     }
 
-    // $addButtonCart.addEventListener('click', console.log(`soy ${result[1].id}`))
+    $buttonCart.addEventListener('click', () => {
+        getValueForCart(result)
+    })
 
-
-
-    //Cerrar Modal
 }
+
+
+function getValueForCart(result) {
+    //Obtener Boton agregar a carrito
+    let value = $addButtonCart.getAttribute('value')
+    $cartCount.textContent = localStorage.length + 1
+    $modal.style.display = "none";
+    $products.style.display = "grid";
+    addToCard(result, value)
+}
+
+//Cerrar modal con la X de cerrar
+let $closeModal = document.querySelector('.modal--close');
+
+$closeModal.addEventListener("click", () => {
+    $modal.style.display = "none";
+    $products.style.display = "grid";
+})
+
+$payButton.addEventListener("click", () => {
+    clearLocal();
+})
 
 function category(result) {
     //Obtener solo valores de categoria
@@ -103,6 +111,7 @@ function category(result) {
     getCatFilter(result);
 }
 
+//Filter categories
 function getCatFilter(result) {
     const $catButton = document.querySelectorAll('.catButton');
 
@@ -111,16 +120,33 @@ function getCatFilter(result) {
             var newFilter = result.filter(item => item.category == $catButton[i].textContent)
             $productCard.innerHTML = ""
             $categoryList.innerHTML = ""
-            cardContructor(newFilter);
+            cardConstructor(newFilter);
         });
     }
 
 }
 
 let addToCard = (results, item) => {
+    let position = 0;
+
+    localStorage.setItem(item, JSON.stringify(results[item]))
+
     console.log(`Agregar a el carro a el elemento ${results[item].id - 1}`);
     console.log(results[item - 1]);
 
+    console.log(localStorage);
 }
 
 getData()
+// getValueForCart(_)
+
+function clearLocal() {
+    localStorage.clear()
+    return 'done'
+}
+
+function printLocal() {
+    for (var i = 0; i < localStorage.length; i++) {
+        console.log(localStorage.getItem(localStorage.key(i)));
+    }
+}
