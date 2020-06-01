@@ -135,4 +135,3 @@ let addToCard = (results, item) => {
 }
 
 getData()
-// getValueForCart(_)
