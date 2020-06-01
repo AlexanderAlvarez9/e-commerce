@@ -10,7 +10,6 @@ const fee = 1600;
 const shipping = 8000;
 let total = 0;
 
-
 $payButton.addEventListener("click", () => {
     clearLocal();
     printLocal()
@@ -23,6 +22,10 @@ function clearLocal() {
 }
 
 function printLocal() {
+    if (!localStorage.length) {
+        fee = 0;
+        shipping = 0;
+    }
     var sub = 0;
     for (var i = 0; i < localStorage.length; i++) {
         console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
