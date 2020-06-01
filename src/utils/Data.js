@@ -1,4 +1,4 @@
-const API = './src/data.json';
+const API = '../src/data.json';
 const $productCard = document.querySelector('.content--products--cards');
 const $categoryList = document.querySelector('.panel--subitem');
 const $reset = document.querySelector('.resetButton');
@@ -8,7 +8,6 @@ const $products = document.querySelector('.main');
 let $addButtonCart = document.querySelector('.objectValue')
 const $cartCount = document.querySelector('.cart-count')
 const $buttonCart = document.querySelector('.modal--details--product__addCart')
-const $payButton = document.querySelector('.pay')
 
 
 
@@ -84,9 +83,7 @@ $closeModal.addEventListener("click", () => {
     $products.style.display = "grid";
 })
 
-$payButton.addEventListener("click", () => {
-    clearLocal();
-})
+
 
 function category(result) {
     //Obtener solo valores de categoria
@@ -139,14 +136,3 @@ let addToCard = (results, item) => {
 
 getData()
 // getValueForCart(_)
-
-function clearLocal() {
-    localStorage.clear()
-    return 'done'
-}
-
-function printLocal() {
-    for (var i = 0; i < localStorage.length; i++) {
-        console.log(localStorage.getItem(localStorage.key(i)));
-    }
-}

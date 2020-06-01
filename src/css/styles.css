@@ -313,7 +313,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    height: 80%;
+    height: 80vh;
     padding: var(--padding);
     width: 60%;
     position: relative;
