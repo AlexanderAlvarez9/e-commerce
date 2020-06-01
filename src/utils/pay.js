@@ -18,7 +18,7 @@ $payButton.addEventListener("click", () => {
 
 function clearLocal() {
     localStorage.clear()
-    return 'done'
+    printLocal()
 }
 
 function printLocal() {
