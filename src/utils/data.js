@@ -5,11 +5,11 @@ const $reset = document.querySelector('.resetButton');
 const $modal = document.querySelector('.modal');
 const $modalDetails = document.querySelector('.modal--details-generated');
 const $products = document.querySelector('.main');
-let $addButtonCart = document.querySelector('.objectValue')
+const $closeModal = document.querySelector('.modal--close');
+const $addButtonCart = document.querySelector('.objectValue')
 const $cartCount = document.querySelector('.cart-count')
-const $buttonCart = document.querySelector('.modal--details--product__addCart')
-
-
+const $buttonCart = document.querySelector('.modal--details--product__addCart');
+const $itemsTotal = document.querySelector('.itemsTotal');
 
 const getData = async () => {
     try {
@@ -22,6 +22,21 @@ const getData = async () => {
     }
 }
 
+//add to cart using localStorage
+let addToCard = (results, item) => {
+    localStorage.setItem(item, JSON.stringify(results[item]))
+}
+
+//clear filters
+$reset.addEventListener('click', getData);
+
+//close modal button
+$closeModal.addEventListener("click", () => {
+    $modal.style.display = "none";
+    $products.style.display = "grid";
+})
+
+//build cards and categories, show each one
 function cardConstructor(result) {
     result.forEach((result) => {
         // console.log(result.id);
@@ -35,16 +50,16 @@ function cardConstructor(result) {
                 </div>
                 `
     });
-    //Construye nuevas categorias
+    //Build categories
     $categoryList.innerHTML = ""
     category(result);
 
-    //Escuchador de eventos para el ver mas y cerrar
+    //EventListener for "ver mas"
     let $buttonDetails = document.querySelectorAll('.product__details');
 
+    //Build Modal Details
     for (let i = 0; i < $buttonDetails.length; i++) {
         $buttonDetails[i].addEventListener("click", () => {
-
             $modalDetails.innerHTML = ""
             $modal.style.display = "grid";
             $products.style.display = "none";
@@ -52,7 +67,7 @@ function cardConstructor(result) {
                 <img class="modal--details--product__img" src="${result[i].image}" alt="Imagen de Producto">
                 <h3 class="modal--details--product__title">${result[i].product}</h3>
                 <p class="modal--details--product__description">Descripcion: ${result[i].description}</p>
-                <p class="modal--details--product__category">Categoria:${result[i].category}</p>
+                <p class="modal--details--product__category">Categoria: ${result[i].category}</p>
                 <p class="modal--details--product__price">Precio: $${result[i].price}</p>
                 `
             $addButtonCart.setAttribute('value', result[i].id)
@@ -62,44 +77,40 @@ function cardConstructor(result) {
     $buttonCart.addEventListener('click', () => {
         getValueForCart(result)
     })
+    //Update cart number
+    $cartCount.textContent = localStorage.length
 
+    //Set total of items
+    $itemsTotal.textContent = result.length
 }
 
-
+//Get value for add to cart
 function getValueForCart(result) {
-    //Obtener Boton agregar a carrito
+    //Get value from button
     let value = $addButtonCart.getAttribute('value')
+    //Update cart number and plus 1
     $cartCount.textContent = localStorage.length + 1
     $modal.style.display = "none";
     $products.style.display = "grid";
     addToCard(result, value)
 }
 
-//Cerrar modal con la X de cerrar
-let $closeModal = document.querySelector('.modal--close');
-
-$closeModal.addEventListener("click", () => {
-    $modal.style.display = "none";
-    $products.style.display = "grid";
-})
-
-
-
+//Get, build and show categories
 function category(result) {
-    //Obtener solo valores de categoria
+    //Get categories
     const cate = result.map(item => item.category)
-    // Obtener valores Unicos de categoria
-    const distinto = (valor, indice, self) => {
+    // Remove duplicates or more
+    const diferentCategory = (valor, indice, self) => {
         return self.indexOf(valor) === indice;
     }
-    let categories = cate.filter(distinto);
+    let categories = cate.filter(diferentCategory);
 
-    //Ordenar Categorias de menor a mayor
+    //Short categories
     let sortCategories = categories.sort(function (a, b) {
         return a - b;
     });
 
-    //Crear Categorias
+    //Build categories
     for (let i = 0; i < sortCategories.length; i++) {
         $categoryList.innerHTML += `
         <li class="catButton"><a class="panel--subitem-button">${sortCategories[i]}</a></li>
@@ -120,18 +131,9 @@ function getCatFilter(result) {
             cardConstructor(newFilter);
         });
     }
-
 }
 
-let addToCard = (results, item) => {
-    let position = 0;
-
-    localStorage.setItem(item, JSON.stringify(results[item]))
-
-    console.log(`Agregar a el carro a el elemento ${results[item].id - 1}`);
-    console.log(results[item - 1]);
-
-    console.log(localStorage);
-}
+//Clear filters
+$reset.addEventListener('click', getData);
 
 getData()

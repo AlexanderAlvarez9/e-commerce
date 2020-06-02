@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../src/css/styles.css">
     <link rel="stylesheet" href="../src/fonts/icon_style.css">
     <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../src/imgs/favicon.png">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
         <div class="header--left">
             <a href="index.html"><img class="logo" src="../src/imgs/logo.jpg" alt="Logo"></a></div>
         <div class="header--right">
-            <span class="nav header--right__help">Ayuda</span>
+            <span class="nav header--right__help"><a href="/help">Ayuda</a></span>
             <a href="shopcart.html">
                 <span class="nav header--right__cart icon icon-cart">
                     <span class="cart-count">0</span>
@@ -32,7 +33,7 @@
                     <li>Categorias</li>
                 </ul>
                 <ul class="panel--subitem">
-                    <!-- Categorias por JS -->
+                    <!-- build categories by JS -->
                 </ul>
             </nav>
         </section>
@@ -44,19 +45,15 @@
                 <nav class="controls">
                     <ul>
                         <li class="resetButton">Quitar Filtros</li>
-                        <li class="reload icon icon-rotate"></li>
+                        <p>Total de productos:&nbsp
+                        <p class="itemsTotal">0</p>
+                        </p>
                     </ul>
                 </nav>
             </section>
             <div class="content--products">
                 <div class="content--products--cards">
-                    <!-- <div class="content--products--cards--card ">
-                        <img class="product__img" src="src/imgs/logo.jpg" alt="Imagen de Producto">
-                        <h3 class="product__title">Titulo algo amplio</h3>
-                        <p class="product__category">Categoria</p>
-                        <p class="product__price">Precio: $1234</p>
-                        <button class="product__details">Ver Mas</button>
-                    </div> -->
+                    <!-- build products by JS -->
                 </div>
             </div>
         </section>
@@ -67,7 +64,7 @@
     <section class="modal">
         <div class="modal-details">
             <div class="modal--details-generated">
-                //Construye Modal
+                <!-- Build Modal -->
             </div>
             <div class="modal--details--product__addCart">
                 <i class="icon icon-cart-plus"></i>

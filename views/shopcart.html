@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../src/css/styles.css">
     <link rel="stylesheet" href="../src/fonts/icon_style.css">
     <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../src/imgs/favicon.png">
 </head>
 
 <body>
@@ -16,23 +17,25 @@
             <a href="index.html"><img class="logo" src="../src/imgs/logo.jpg" alt="Logo"></a></div>
         <div class="header--right">
             <span class="nav header--right__help">Ayuda</span>
-            <a href="shopcart.html"><span class="nav header--right__cart icon icon-cart"><span
-                        class="cart-count"></span></span></a>
+            <a href="shopcart.html">
+                <span class="nav header--right__cart icon icon-cart">
+                    <span class="cart-count">0</span>
+                </span>
+            </a>
             <span class="nav header--right__profile icon icon-user"></span>
         </div>
     </header>
 
     <section class="cart">
-        <h3 class="cart--title">CARRITO DE COMPRAS</h3>
+        <p class="cart--title">
+            <span class="cart--title__title">CARRITO DE COMPRAS</span>
+            <span class="cart--title__count">
+                Cantidad de productos: <span class="localCount">0</span>
+            </span>
+        </p>
         <div class="cart-content">
             <div class="cart--cards">
-                <!-- <div class="cart--cards--product">
-                    <h3 class="cart--product__title">Titulo</h3>
-                    <img class="cart--product__img" src="../src/imgs/logo.jpg" alt="Imagen Producto">
-                    <p class="cart--product__description"><strong>Descripcion:</strong> </p>
-                    <p class="cart--product__category"><strong>Categoria:</strong> </p>
-                    <p class="cart--product__price"><strong>Precio:</strong> </p>
-                </div> -->
+                <!-- Build card from cart -->
             </div>
             <div class="cart--sumary">
                 <h2 class="cart--sumary--title">Resumen del Pedido</h2>
