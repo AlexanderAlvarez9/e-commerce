@@ -7,7 +7,7 @@ const $fee = document.querySelector('.fee');
 const $total = document.querySelector('.total');
 const $localCount = document.querySelector('.localCount');
 
-const shipping = 8000; //Change for cost of shipping
+let shipping = 8000; //Change for cost of shipping
 let fee = 0;
 let total = 0;
 
@@ -57,6 +57,7 @@ function printLocal() {
 function clearLocal() {
     localStorage.clear()
     printLocal()
+    location.reload();
 }
 
 printLocal()
