@@ -2,78 +2,78 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sofi Shop</title>
-    <link rel="stylesheet" href="../src/css/styles.css">
-    <link rel="stylesheet" href="../src/fonts/icon_style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../src/imgs/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sofi Shop</title>
+  <link rel="stylesheet" href="../src/css/styles.css">
+  <link rel="stylesheet" href="../src/fonts/icon_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../src/imgs/favicon.png">
 </head>
 
 <body>
-    <header class="header">
-        <div class="header--left">
-            <a href="index.html"><img class="logo" src="../src/imgs/logo.jpg" alt="Logo"></a></div>
-        <div class="header--right">
-            <span class="nav header--right__help"><a href="/help">Ayuda</a></span>
-            <a href="shopcart.html">
-                <span class="nav header--right__cart icon icon-cart">
-                    <span class="cart-count">0</span>
-                </span>
-            </a>
-            <span class="nav header--right__profile icon icon-user"></span>
-        </div>
-    </header>
+  <header class="header">
+    <div class="header--left">
+      <a href="index.html"><img class="logo" src="../src/imgs/logo.png" alt="Logo"></a></div>
+    <div class="header--right">
+      <span class="nav header--right__help"><a target="_blank" href="https://www.google.com">Ayuda</a></span>
+      <a href="shopcart.html">
+        <span class="nav header--right__cart icon icon-cart">
+          <span class="cart-count">0</span>
+        </span>
+      </a>
+      <span class="nav header--right__profile icon icon-user"></span>
+    </div>
+  </header>
 
-    <main class="main">
-        <section class="main--panel">
-            <nav>
-                <ul class="panel--item">
-                    <li>Categorias</li>
-                </ul>
-                <ul class="panel--subitem">
-                    <!-- build categories by JS -->
-                </ul>
-            </nav>
-        </section>
-        <section class="main--content">
-            <div class="content--banner">
-                <a href="/"><img src="../src/imgs/banner.png" alt="Baner"></a>
-            </div>
-            <section class="main--controls">
-                <nav class="controls">
-                    <ul>
-                        <li class="resetButton">Quitar Filtros</li>
-                        <p>Total de productos:&nbsp
-                        <p class="itemsTotal">0</p>
-                        </p>
-                    </ul>
-                </nav>
-            </section>
-            <div class="content--products">
-                <div class="content--products--cards">
-                    <!-- build products by JS -->
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        Copyright © 2020 - All Rights Reserved.
-    </footer>
-    <section class="modal">
-        <div class="modal-details">
-            <div class="modal--details-generated">
-                <!-- Build Modal -->
-            </div>
-            <div class="modal--details--product__addCart">
-                <i class="icon icon-cart-plus"></i>
-                <p class="objectValue" value="">Agregar al Carrito</p>
-            </div>
-            <div class="modal--close"><span>&times;</span></div>
-        </div>
+  <main class="main">
+    <section class="main--panel">
+      <nav>
+        <ul class="panel--item">
+          <li>Categorias</li>
+        </ul>
+        <ul class="panel--subitem">
+          <!-- build categories by JS -->
+        </ul>
+      </nav>
     </section>
-    <script src="../src/utils/data.js"></script>
+    <section class="main--content">
+      <div class="content--banner">
+        <a href="index.html"><img src="../src/imgs/banner.png" alt="Baner"></a>
+      </div>
+      <section class="main--controls">
+        <nav class="controls">
+          <ul>
+            <li class="resetButton">Quitar Filtros</li>
+            <p>Total de productos:&nbsp
+            <p class="itemsTotal">0</p>
+            </p>
+          </ul>
+        </nav>
+      </section>
+      <div class="content--products">
+        <div class="content--products--cards">
+          <!-- build products by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    Copyright © 2020 - All Rights Reserved.
+  </footer>
+  <section class="modal">
+    <div class="modal-details">
+      <div class="modal--details-generated">
+        <!-- Build Modal -->
+      </div>
+      <div class="modal--details--product__addCart">
+        <i class="icon icon-cart-plus"></i>
+        <p class="objectValue" value="">Agregar al Carrito</p>
+      </div>
+      <div class="modal--close"><span>&times;</span></div>
+    </div>
+  </section>
+  <script src="../src/utils/data.js"></script>
 </body>
 
 </html>

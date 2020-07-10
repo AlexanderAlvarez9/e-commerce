@@ -239,8 +239,9 @@ body {
   grid-area: product__details;
   height: 1.5em;
   justify-content: center;
-  margin: 0.5em;
+  margin: 0.5em auto;
   user-select: none;
+  width: 40%;
 }
 
 .resetButton {

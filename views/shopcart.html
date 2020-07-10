@@ -2,70 +2,70 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="../src/css/styles.css">
-    <link rel="stylesheet" href="../src/fonts/icon_style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../src/imgs/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="../src/css/styles.css">
+  <link rel="stylesheet" href="../src/fonts/icon_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../src/imgs/favicon.png">
 </head>
 
 <body>
-    <header class="header">
-        <div class="header--left">
-            <a href="index.html"><img class="logo" src="../src/imgs/logo.jpg" alt="Logo"></a></div>
-        <div class="header--right">
-            <span class="nav header--right__help">Ayuda</span>
-            <a href="shopcart.html">
-                <span class="nav header--right__cart icon icon-cart">
-                    <span class="cart-count">0</span>
-                </span>
-            </a>
-            <span class="nav header--right__profile icon icon-user"></span>
-        </div>
-    </header>
+  <header class="header">
+    <div class="header--left">
+      <a href="index.html"><img class="logo" src="../src/imgs/logo.png" alt="Logo"></a></div>
+    <div class="header--right">
+      <span class="nav header--right__help"><a target="_blank" href="https://www.google.com">Ayuda</a></span>
+      <a href="shopcart.html">
+        <span class="nav header--right__cart icon icon-cart">
+          <span class="cart-count">0</span>
+        </span>
+      </a>
+      <span class="nav header--right__profile icon icon-user"></span>
+    </div>
+  </header>
 
-    <section class="cart">
-        <p class="cart--title">
-            <span class="cart--title__title">CARRITO DE COMPRAS</span>
-            <span class="cart--title__count">
-                Cantidad de productos: <span class="localCount">0</span>
-            </span>
-        </p>
-        <div class="cart-content">
-            <div class="cart--cards">
-                <!-- Build card from cart -->
-            </div>
-            <div class="cart--sumary">
-                <h2 class="cart--sumary--title">Resumen del Pedido</h2>
-                <div class="cart--sumary--details">
-                    <table class="table-sumary">
-                        <tr>
-                            <td>Subtotal:</td>
-                            <td class="subtotal">0</td>
-                        </tr>
-                        <tr>
-                            <td>Envio:</td>
-                            <td class="shipping">0</td>
-                        </tr>
-                        <tr class="border">
-                            <td>Impuestos:</td>
-                            <td class="fee">0</td>
-                        </tr>
-                        <tfoot>
-                            <tr>
-                                <td>TOTAL:</td>
-                                <td class="total">0</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <button class="cart--sumary-pay pay">IR A PAGAR</button>
-            </div>
+  <section class="cart">
+    <p class="cart--title">
+      <span class="cart--title__title">CARRITO DE COMPRAS</span>
+      <span class="cart--title__count">
+        Cantidad de productos: <span class="localCount">0</span>
+      </span>
+    </p>
+    <div class="cart-content">
+      <div class="cart--cards">
+        <!-- Build card from cart -->
+      </div>
+      <div class="cart--sumary">
+        <h2 class="cart--sumary--title">Resumen del Pedido</h2>
+        <div class="cart--sumary--details">
+          <table class="table-sumary">
+            <tr>
+              <td>Subtotal:</td>
+              <td class="subtotal">0</td>
+            </tr>
+            <tr>
+              <td>Envio:</td>
+              <td class="shipping">0</td>
+            </tr>
+            <tr class="border">
+              <td>Impuestos:</td>
+              <td class="fee">0</td>
+            </tr>
+            <tfoot>
+              <tr>
+                <td>TOTAL:</td>
+                <td class="total">0</td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
-    </section>
-    <script src="../src/utils/pay.js"></script>
+        <button class="cart--sumary-pay pay">IR A PAGAR</button>
+      </div>
+    </div>
+  </section>
+  <script src="../src/utils/pay.js"></script>
 
 </body>
 
