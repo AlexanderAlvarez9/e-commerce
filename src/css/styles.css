@@ -33,15 +33,15 @@ a {
 }
 
 a:visited {
-  color: #0073B7;
+  color: var(--background-contrast);
 }
 
 a:hover {
-  color: #0073B7;
+  color: var(--background-contrast);
 }
 
 a:active {
-  color: #0073B7;
+  color: var(--background-contrast);
 }
 
 div,
@@ -54,9 +54,10 @@ form {
 /*--- VARS ----*/
 
 :root {
-  --background: #ECF0F5;
-  --card: #F4F4F4;
-  --principal: #CA703E;
+  --background: #FFFFFF;
+  --background-contrast: #1A1A1A;
+  --card: #E6E6E6;
+  --principal: #414141;
   --subprincipal: #D91E62;
   --secondary: #0073B7;
   --alert: #00BB2D;
@@ -65,9 +66,10 @@ form {
   --panel-padding: 0 0.3em 0 0.3em;
   --margin: 2em;
   --gap: 1em;
-  --radius: 0.5em;
+  --radius: 0.3em;
   --background-gray: #EFEFEF;
   --border: 1px solid #e5edef;
+  --button-color: #BBE432;
 }
 
 /*--- END VARS ----*/
@@ -82,7 +84,7 @@ body {
 }
 
 .header {
-  background-color: var(--card);
+  background-color: var(--background-contrast);
   border-bottom: var(--border);
   display: flex;
   justify-content: space-around;
@@ -138,12 +140,14 @@ body {
 }
 
 .panel--item {
+  color: white;
   background-color: var(--principal);
   border-radius: var(--radius);
   padding: 0.5em var(--padding);
 }
 
 .panel--subitem li {
+  color: white;
   align-items: center;
   background-color: var(--principal);
   border: var(--border);
@@ -166,6 +170,7 @@ body {
 
 .content--banner img {
   border-radius: var(--radius);
+  height: 250px;
 }
 
 .controls ul {
@@ -189,7 +194,7 @@ body {
 
 .content--products--cards--card {
   background-color: var(--card);
-  border: 1px solid #99999999;
+  border: 1px solid #99999955;
   display: grid;
   grid-gap: 1em;
   grid-template-areas: "product__img product__title"
@@ -235,6 +240,7 @@ body {
   align-items: center;
   background-color: var(--principal);
   border: var(--border);
+  color: var(--button-color);
   display: flex;
   grid-area: product__details;
   height: 1.5em;
@@ -254,6 +260,7 @@ body {
   margin: 0.5em;
   user-select: none;
   width: 10em;
+  color: var(--button-color);
 }
 
 .resetButton:active,
